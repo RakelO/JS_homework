@@ -1,4 +1,4 @@
-Задание 1:
+//Task1:
 > db.mycoll.find({scores: {$elemMatch: {score: {$gt: 93, $lt: 95}}}})
 
 { "_id" : 19, "name" : "Gisela Levin", "scores" : [ { "type" : "exam", "score" : 44.51
@@ -32,7 +32,7 @@
 { "_id" : 191, "name" : "Efrain Claw", "scores" : [ { "type" : "exam", "score" : 94.67
 46 }, { "type" : "homework", "score" : 75.86075840047938 } ] }
 
-Задание 2:
+//Task2:
 > db.mycoll.aggregate([{$unwind:"$scores"}, {$match: {"scores.type": "exam"}}, {$match:{"scores.score": {$gt: 90}}}])
 
 { "_id" : 7, "name" : "Salena Olmos", "scores" : { "type" : "exam", "score" : 90.37826509157176 } }
@@ -55,7 +55,7 @@
 { "_id" : 191, "name" : "Efrain Claw", "scores" : { "type" : "exam", "score" : 94.67153825229884 } }
 
 
-Задание 3:
+//Task3:
 > db.mycoll.update({name: "Vinnie Auerbach"}, {$push: { accepted: true}})
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
