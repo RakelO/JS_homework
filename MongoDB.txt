@@ -1,0 +1,87 @@
+Задание 1:
+> db.mycoll.find({scores: {$elemMatch: {score: {$gt: 93, $lt: 95}}}})
+
+{ "_id" : 19, "name" : "Gisela Levin", "scores" : [ { "type" : "exam", "score" : 44.51
+683 }, { "type" : "homework", "score" : 49.43132782777443 } ] }
+{ "_id" : 29, "name" : "Gwyneth Garling", "scores" : [ { "type" : "exam", "score" : 48
+60616 }, { "type" : "homework", "score" : 93.26639335532833 } ] }
+{ "_id" : 52, "name" : "Tawana Oberg", "scores" : [ { "type" : "exam", "score" : 80.59
+78 }, { "type" : "homework", "score" : 68.64511133845058 } ] }
+{ "_id" : 55, "name" : "Tresa Sinha", "scores" : [ { "type" : "exam", "score" : 94.931
+4 }, { "score" : 77.248768811767, "type" : "homework" } ] }
+{ "_id" : 57, "name" : "Chad Rahe", "scores" : [ { "type" : "exam", "score" : 40.84572
+}, { "type" : "homework", "score" : 27.06916803280036 } ] }
+{ "_id" : 67, "name" : "Merissa Mann", "scores" : [ { "score" : 75.1949733626123, "typ
+ }, { "score" : 94.67518167209815, "type" : "homework" } ] }
+{ "_id" : 74, "name" : "Leola Lundin", "scores" : [ { "score" : 31.62936464207764, "ty
+22 }, { "type" : "homework", "score" : 93.71671632774428 } ] }
+{ "_id" : 84, "name" : "Timothy Harrod", "scores" : [ { "type" : "exam", "score" : 93.
+5295 }, { "type" : "homework", "score" : 43.46258375716373 } ] }
+{ "_id" : 97, "name" : "Maren Scheider", "scores" : [ { "score" : 94.4329121733663, "t
+357 }, { "type" : "homework", "score" : 59.46326216544371 } ] }
+{ "_id" : 112, "name" : "Myrtle Wolfinger", "scores" : [ { "type" : "exam", "score" :
+6506328 }, { "type" : "homework", "score" : 71.21962876453497 } ] }
+{ "_id" : 131, "name" : "Fletcher Mcconnell", "scores" : [ { "score" : 24.986706354791
+621711343 }, { "type" : "homework", "score" : 29.37194792367135 } ] }
+{ "_id" : 154, "name" : "Rachell Aman", "scores" : [ { "type" : "exam", "score" : 94.5
+72 }, { "type" : "homework", "score" : 47.34684739970935 } ] }
+{ "_id" : 155, "name" : "Aleida Elsass", "scores" : [ { "type" : "exam", "score" : 42.
+816 }, { "type" : "homework", "score" : 30.56402201379193 } ] }
+{ "_id" : 167, "name" : "Malisa Jeanes", "scores" : [ { "type" : "exam", "score" : 40.
+9564 }, { "type" : "homework", "score" : 56.90401843569644 } ] }
+{ "_id" : 191, "name" : "Efrain Claw", "scores" : [ { "type" : "exam", "score" : 94.67
+46 }, { "type" : "homework", "score" : 75.86075840047938 } ] }
+
+Задание 2:
+> db.mycoll.aggregate([{$unwind:"$scores"}, {$match: {"scores.type": "exam"}}, {$match:{"scores.score": {$gt: 90}}}])
+
+{ "_id" : 7, "name" : "Salena Olmos", "scores" : { "type" : "exam", "score" : 90.37826509157176 } }
+{ "_id" : 9, "name" : "Sanda Ryba", "scores" : { "type" : "exam", "score" : 97.00509953654694 } }
+{ "_id" : 13, "name" : "Jessika Dagenais", "scores" : { "type" : "exam", "score" : 90.47179954427436 } }
+{ "_id" : 44, "name" : "Houston Valenti", "scores" : { "type" : "exam", "score" : 98.06441387027331 } }
+{ "_id" : 47, "name" : "Kurtis Jiles", "scores" : { "type" : "exam", "score" : 92.96916908741805 } }
+{ "_id" : 49, "name" : "Dinah Sauve", "scores" : { "type" : "exam", "score" : 96.64807532447064 } }
+{ "_id" : 55, "name" : "Tresa Sinha", "scores" : { "type" : "exam", "score" : 94.93136959210354 } }
+{ "_id" : 59, "name" : "Vinnie Auerbach", "scores" : { "type" : "exam", "score" : 95.45508256300009 }, "accepted" : [ true ] }
+{ "_id" : 72, "name" : "Leonida Lafond", "scores" : { "type" : "exam", "score" : 92.10605086888438 } }
+{ "_id" : 84, "name" : "Timothy Harrod", "scores" : { "type" : "exam", "score" : 93.23020013495737 } }
+{ "_id" : 97, "name" : "Maren Scheider", "scores" : { "score" : 94.4329121733663, "type" : "exam" } }
+{ "_id" : 127, "name" : "Jessika Dagenais", "scores" : { "type" : "exam", "score" : 96.93459855769822 } }
+{ "_id" : 136, "name" : "Margart Vitello", "scores" : { "type" : "exam", "score" : 99.33685767140612 } }
+{ "_id" : 153, "name" : "Mariette Batdorf", "scores" : { "score" : 91.38690728885123, "type" : "exam" } }
+{ "_id" : 154, "name" : "Rachell Aman", "scores" : { "type" : "exam", "score" : 94.50988306850947 } }
+{ "_id" : 159, "name" : "Terica Brugger", "scores" : { "score" : 97.822030541043, "type" : "exam" } }
+{ "_id" : 174, "name" : "Dusti Lemmond", "scores" : { "type" : "exam", "score" : 91.51968055194875 } }
+{ "_id" : 191, "name" : "Efrain Claw", "scores" : { "type" : "exam", "score" : 94.67153825229884 } }
+
+
+Задание 3:
+> db.mycoll.update({name: "Vinnie Auerbach"}, {$push: { accepted: true}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.mycoll.find({name: "Vinnie Auerbach"}).pretty()
+{
+        "_id" : 59,
+        "name" : "Vinnie Auerbach",
+        "scores" : [
+                {
+                        "type" : "exam",
+                        "score" : 95.45508256300009
+                },
+                {
+                        "type" : "quiz",
+                        "score" : 7.512188017365151
+                },
+                {
+                        "type" : "homework",
+                        "score" : 28.5905754294006
+                },
+                {
+                        "type" : "homework",
+                        "score" : 23.91300715707971
+                }
+        ],
+        "accepted" : [
+                true
+        ]
+}
